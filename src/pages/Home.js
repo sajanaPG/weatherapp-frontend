@@ -1,27 +1,37 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import cities from '../cities.json'
 import { getWeather } from '../services/ApiService';
+import WeatherCard from '../components/WeatherCard';
+import { Row, Col } from 'react-bootstrap';
 
 const Home = () => {
+    const [weatherData, setWeatherData] = useState([]);
 
-   
+    useEffect(() => {
 
-    useEffect(() => {      
-        
         const fetchWeather = async () => {
             const cityCodesArr = cities.List.map(city => city.CityCode);
             const response = await getWeather(cityCodesArr);
-            console.log(response);
+            setWeatherData(response.list);
         }
 
         fetchWeather();
-        
+
     }, []);
 
     return (
         <div>
-            <h3>City List</h3>
-            
+            <Row>
+
+                {weatherData && weatherData.map((cityWeather, index) => {
+                    return (
+                        <Col lg={6} className='mb-5' key={index}>
+                            <WeatherCard cityWeather={cityWeather} />
+                        </Col>
+                    )
+                })}
+            </Row>
+
         </div>
     )
 }

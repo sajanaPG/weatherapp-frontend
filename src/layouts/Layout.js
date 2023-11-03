@@ -3,19 +3,19 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
     return (
-        <div>            
-            <div>
-                <h1>Weather App</h1>
+        <div>
+            <div className="header-title">
+                <div>Weather App</div>
             </div>
 
-            <Container className="px-5">
-                <Outlet/>
+            <Container className="home-container">
+                <Outlet />
             </Container>
 
-            <footer className="bg-body-tertiary py-3">
-                <Container>
+            <footer className="footer">
+                <p> 
                     2023 Fidenz Technologies
-                </Container>
+                </p>
             </footer>
         </div>
     )
