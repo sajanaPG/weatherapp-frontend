@@ -64,6 +64,10 @@ body {
   color: #ffffff;
 }
 
+.cards:hover {
+  cursor: pointer;
+}
+
 .card-head {
   width: 579px;
   height: 217px;

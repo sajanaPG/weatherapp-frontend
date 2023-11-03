@@ -1,6 +1,7 @@
 import { Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-const WeatherCard = ({ cityWeather }) => {
+const WeatherCard = ({ cityWeather, setSelectedCity }) => {
 
     const options = {
         hour: 'numeric',
@@ -16,8 +17,16 @@ const WeatherCard = ({ cityWeather }) => {
         hour12: true,
     }
 
+    const navigate = useNavigate();
+
+    const hancleCardClick = (cityWeather) => {
+        setSelectedCity(cityWeather);
+        localStorage.setItem("selectedCity", JSON.stringify(cityWeather));
+        navigate('/cityDetails');
+    };
+
     return (
-        <div className="cards">
+        <div className="cards" onClick={()=> hancleCardClick(cityWeather)}>
             <div className="card-head">
                 <button className="card-btn-close">&times;</button>
                 <Row>
