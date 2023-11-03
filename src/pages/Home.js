@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import cities from '../cities.json'
 import { getWeather } from '../services/ApiService';
 import WeatherCard from '../components/WeatherCard';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col,  Button } from 'react-bootstrap';
 
 const Home = () => {
     const [weatherData, setWeatherData] = useState([]);
@@ -21,8 +21,11 @@ const Home = () => {
 
     return (
         <div>
+            <div className='add-city'>
+                <input placeholder='Enter a city' className='city-input'/>
+                <span> <Button>Add City</Button> </span>
+            </div>
             <Row>
-
                 {weatherData && weatherData.map((cityWeather, index) => {
                     return (
                         <Col lg={6} className='mb-5' key={index}>
