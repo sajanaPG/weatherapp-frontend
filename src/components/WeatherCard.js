@@ -19,7 +19,7 @@ const WeatherCard = ({ cityWeather }) => {
     return (
         <div className="cards">
             <div className="card-head">
-
+                <button className="card-btn-close">&times;</button>
                 <Row>
                     <Col>
                         <div className="card-city">{cityWeather.name}, {cityWeather.sys.country}</div>

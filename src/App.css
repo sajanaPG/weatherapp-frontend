@@ -1,5 +1,13 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-image: url('./images/Header-bg.png');    
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: #1f2128; 
+}
+
 .header-title {
   margin-top: 82px;
   margin-bottom: 54px;
@@ -9,9 +17,8 @@
 .header-title div {
   font-size: 29px;
   line-height: 36px;
-  /* color: #ffffff; */
+  color: #ffffff; 
   font-weight: 600;
-  font-family: 'Open Sans';
 }
 
 .home-container {
@@ -28,9 +35,27 @@
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
   background-color: #378de7;
-  background-image: url('./images/cloud-bg.png'), linear-gradient(#378de7, #378de7);
+  background-image: url('./images/cloud-bg.png');
   background-position: bottom;
-  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
+  position: relative;
+}
+
+.card-btn-close {
+  background-color: transparent;
+  border: 0;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  color: white;
+  transition: all 0.2s;
+}
+
+.card-btn-close:hover {
+  color: black;
 }
 
 .card-city {
@@ -118,11 +143,12 @@
 }
 
 .card-body-col2 p {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .card-body-col2 img {
   width: 36px;
+  padding-top: 10px;
 }
 
 .card-body-col3 {
