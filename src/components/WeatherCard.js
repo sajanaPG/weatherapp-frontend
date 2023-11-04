@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const WeatherCard = ({ cityWeather, setSelectedCity }) => {
 
-    const options = {
+    const dateTimePptions = {
         hour: 'numeric',
         minute: '2-digit',
         hour12: true,
@@ -11,7 +11,7 @@ const WeatherCard = ({ cityWeather, setSelectedCity }) => {
         day: 'numeric',
     };
 
-    const options2 = {
+    const timeOptions = {
         hour: 'numeric',
         minute: '2-digit',
         hour12: true,
@@ -34,7 +34,7 @@ const WeatherCard = ({ cityWeather, setSelectedCity }) => {
                 <Row>
                     <Col>
                         <div className="card-city">{cityWeather.name}, {cityWeather.sys.country}</div>
-                        <div className="card-date">{new Date(cityWeather.dt * 1000).toLocaleString('en-US', options)}</div>
+                        <div className="card-date">{new Date(cityWeather.dt * 1000).toLocaleString('en-US', dateTimePptions)}</div>
                         <div className="card-row">
                             <img alt="weather icon" src={`https://openweathermap.org/img/wn/${cityWeather.weather[0].icon}.png`} />
                             <div className="card-desc">{cityWeather.weather[0].description}</div>
@@ -61,8 +61,8 @@ const WeatherCard = ({ cityWeather, setSelectedCity }) => {
                         <p>{cityWeather.wind.speed}m/s {cityWeather.wind.deg} Degree</p>
                     </Col>
                     <Col className="card-body-col3" lg={true} xs={6}>
-                        <p>Sunrise: {new Date(cityWeather.sys.sunrise * 1000).toLocaleString('en-US', options2).toLowerCase()} </p>
-                        <p>Sunset: {new Date(cityWeather.sys.sunset * 1000).toLocaleString('en-US', options2).toLowerCase()} </p>
+                        <p>Sunrise: {new Date(cityWeather.sys.sunrise * 1000).toLocaleString('en-US', timeOptions).toLowerCase()} </p>
+                        <p>Sunset: {new Date(cityWeather.sys.sunset * 1000).toLocaleString('en-US', timeOptions).toLowerCase()} </p>
                     </Col>
                 </Row>
             </div>

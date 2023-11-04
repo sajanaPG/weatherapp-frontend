@@ -2,7 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import './CityDetails.css';
 
 const CityDetails = ({ selectedCity }) => {
-    const options = {
+    const dateTimePptions = {
         hour: 'numeric',
         minute: '2-digit',
         hour12: true,
@@ -10,7 +10,7 @@ const CityDetails = ({ selectedCity }) => {
         day: 'numeric',
     };
 
-    const options2 = {
+    const timeOptions = {
         hour: 'numeric',
         minute: '2-digit',
         hour12: true,
@@ -22,7 +22,7 @@ const CityDetails = ({ selectedCity }) => {
                         <path fillRule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                     </svg>
                 <div className="detcard-city">{selectedCity.name}, {selectedCity.sys.country}</div>
-                <div className="detcard-date">{new Date(selectedCity.dt * 1000).toLocaleString('en-US', options)}</div>
+                <div className="detcard-date">{new Date(selectedCity.dt * 1000).toLocaleString('en-US', dateTimePptions)}</div>
                 <Row className="mt-4">
                     <Col className="detcard-col">
                         <img alt="weather icon" src={`https://openweathermap.org/img/wn/${selectedCity.weather[0].icon}.png`} className="weather-icon" />
@@ -49,8 +49,8 @@ const CityDetails = ({ selectedCity }) => {
                         <p>{selectedCity.wind.speed}m/s {selectedCity.wind.deg} Degree</p>
                     </Col>
                     <Col className="detcard-body-col3" lg={true} xs={6}>
-                        <p>Sunrise: {new Date(selectedCity.sys.sunrise * 1000).toLocaleString('en-US', options2).toLowerCase()} </p>
-                        <p>Sunset: {new Date(selectedCity.sys.sunset * 1000).toLocaleString('en-US', options2).toLowerCase()} </p>
+                        <p>Sunrise: {new Date(selectedCity.sys.sunrise * 1000).toLocaleString('en-US', timeOptions).toLowerCase()} </p>
+                        <p>Sunset: {new Date(selectedCity.sys.sunset * 1000).toLocaleString('en-US', timeOptions).toLowerCase()} </p>
                     </Col>
                 </Row>
             </div>
