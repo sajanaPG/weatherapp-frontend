@@ -25,9 +25,11 @@ const WeatherCard = ({ cityWeather, setSelectedCity }) => {
         navigate('/cityDetails');
     };
 
+    const colors = ["#378de7", "#6149cb", "#40b681", "#de934e", "#9c3939", "#33FFC8", "#F833FF", "#FF5733"];
+
     return (        
         <div className="cards" onClick={()=> hancleCardClick(cityWeather)}>
-            <div className="card-head">
+            <div className="card-head" style={{ backgroundColor: colors[Math.floor(Math.random() * colors.length)] }}>
                 <button className="card-btn-close">&times;</button>
                 <Row>
                     <Col>
