@@ -25,7 +25,7 @@ const WeatherCard = ({ cityWeather, setSelectedCity }) => {
         navigate('/cityDetails');
     };
 
-    return (
+    return (        
         <div className="cards" onClick={()=> hancleCardClick(cityWeather)}>
             <div className="card-head">
                 <button className="card-btn-close">&times;</button>
@@ -49,16 +49,16 @@ const WeatherCard = ({ cityWeather, setSelectedCity }) => {
 
             <div className="card-body">
                 <Row>
-                    <Col className="card-body-col1">
-                        <p>Pressure {cityWeather.main.pressure}hPa</p>
-                        <p>Humidity {cityWeather.main.humidity}%</p>
-                        <p>Visibility {cityWeather.visibility / 1000} km</p>
+                    <Col className="card-body-col1 order-lg-first" lg={true} xs={6}>
+                        <p>Pressure: {cityWeather.main.pressure}hPa</p>
+                        <p>Humidity: {cityWeather.main.humidity}%</p>
+                        <p>Visibility: {cityWeather.visibility / 1000} km</p>
                     </Col>
-                    <Col className="card-body-col2">
+                    <Col className="card-body-col2 order-first" lg={true} xs={12}>
                         <img alt="wind-arrow" src={"icons/direction-arrow.png"} />
                         <p>{cityWeather.wind.speed}m/s {cityWeather.wind.deg} Degree</p>
                     </Col>
-                    <Col className="card-body-col3">
+                    <Col className="card-body-col3" lg={true} xs={6}>
                         <p>Sunrise: {new Date(cityWeather.sys.sunrise * 1000).toLocaleString('en-US', options2).toLowerCase()} </p>
                         <p>Sunset: {new Date(cityWeather.sys.sunset * 1000).toLocaleString('en-US', options2).toLowerCase()} </p>
                     </Col>

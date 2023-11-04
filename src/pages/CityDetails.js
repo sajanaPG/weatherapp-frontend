@@ -1,6 +1,5 @@
 import { Row, Col } from "react-bootstrap";
 import './CityDetails.css';
-import { Link } from "react-router-dom";
 
 const CityDetails = ({ selectedCity }) => {
     const options = {
@@ -40,16 +39,16 @@ const CityDetails = ({ selectedCity }) => {
 
             <div className="detcard-body">
                 <Row>
-                    <Col className="detcard-body-col1">
+                    <Col className="detcard-body-col1 order-lg-first" lg={true} xs={6}>
                         <p>Pressure {selectedCity.main.pressure}hPa</p>
                         <p>Humidity {selectedCity.main.humidity}%</p>
                         <p>Visibility {selectedCity.visibility / 1000} km</p>
                     </Col>
-                    <Col className="detcard-body-col2">
+                    <Col className="detcard-body-col2 order-first" lg={true} xs={12}>
                         <img alt="wind-arrow" src={"icons/direction-arrow.png"} />
                         <p>{selectedCity.wind.speed}m/s {selectedCity.wind.deg} Degree</p>
                     </Col>
-                    <Col className="detcard-body-col3">
+                    <Col className="detcard-body-col3" lg={true} xs={6}>
                         <p>Sunrise: {new Date(selectedCity.sys.sunrise * 1000).toLocaleString('en-US', options2).toLowerCase()} </p>
                         <p>Sunset: {new Date(selectedCity.sys.sunset * 1000).toLocaleString('en-US', options2).toLowerCase()} </p>
                     </Col>

@@ -121,3 +121,64 @@
     margin-right: 80px;
     margin-top: 40px;
 }
+
+@media (max-width: 479px) {
+    .detcard-head {
+        height: 490px;
+    }
+
+    .detcard-city {
+        margin-top: 0px;
+    }
+
+    .detcard-col {
+        border-right: none;
+    }
+
+    .detcard-head .row {
+        margin-top: 4px!important;
+    }
+
+    .weather-icon {
+        margin-left: 110px;
+    }
+
+    .detcard-temp {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .detcard-body-col1 {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 600;
+        border-right-width: 1px;
+        margin-left: 20px;
+        margin-top: 4px;
+      }
+      
+      .detcard-body-col2 {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 600;
+        margin-top: 6px;
+        border-right: none;
+      }
+      
+      .detcard-body-col2 p {
+        margin-top: 4px;
+      }
+      
+      .detcard-body-col2 img {
+        width: 20px;
+        padding-top: 0px;
+      }
+      
+      .detcard-body-col3 {
+        font-size: 14px;
+        line-height: 24px;
+        margin-right: 20px;
+        margin-top: 12px;
+        width: auto;
+      }
+}
