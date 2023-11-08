@@ -1,15 +1,12 @@
 import { useEffect, useState } from 'react';
-import cities from '../cities.json'
 import { getWeather } from '../services/ApiService';
 import WeatherCard from '../components/WeatherCard';
 import { Row, Col, Button } from 'react-bootstrap';
-
+import {cityCodesArr} from '../Constants';
 const Home = ({ setSelectedCity }) => {
     const [weatherData, setWeatherData] = useState([]);
 
-    useEffect(() => {
-        const cityCodesArr = cities.List.map(city => city.CityCode);
-
+    useEffect(() => {        
         const fetchDataForCity = async (city) => {
             const cachedData = JSON.parse(localStorage.getItem(city));
             if (cachedData) {

@@ -1,31 +1,15 @@
 import { Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import {dateTimeOptions, timeOptions, colors} from '../Constants'
 
 const WeatherCard = ({ cityWeather, setSelectedCity }) => {
-
-    const dateTimePptions = {
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-        month: 'short',
-        day: 'numeric',
-    };
-
-    const timeOptions = {
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-    }
-
     const navigate = useNavigate();
 
     const hancleCardClick = (cityWeather) => {
         setSelectedCity(cityWeather);
         localStorage.setItem("selectedCity", JSON.stringify(cityWeather));
         navigate('/cityDetails');
-    };
-
-    const colors = ["#378de7", "#6149cb", "#40b681", "#de934e", "#9c3939", "#33FFC8", "#F833FF", "#FF5733"];
+    };    
 
     return (        
         <div className="cards" onClick={()=> hancleCardClick(cityWeather)}>
@@ -34,7 +18,7 @@ const WeatherCard = ({ cityWeather, setSelectedCity }) => {
                 <Row>
                     <Col>
                         <div className="card-city">{cityWeather.name}, {cityWeather.sys.country}</div>
-                        <div className="card-date">{new Date(cityWeather.dt * 1000).toLocaleString('en-US', dateTimePptions)}</div>
+                        <div className="card-date">{new Date(cityWeather.dt * 1000).toLocaleString('en-US', dateTimeOptions)}</div>
                         <div className="card-row">
                             <img alt="weather icon" src={`https://openweathermap.org/img/wn/${cityWeather.weather[0].icon}.png`} />
                             <div className="card-desc">{cityWeather.weather[0].description}</div>

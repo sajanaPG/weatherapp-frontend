@@ -1,12 +1,8 @@
 import axios from "axios";
-
-export const getWeather = async (city) => {
-    const api = {
-        key: "90c8c2462a9da495f14f1dae2c86f8b9",
-        base: "http://api.openweathermap.org/data/2.5/group"
-    }
+import {apiKey, baseUrl} from '../Constants.js';
+export const getWeather = async (city) => {    
     try {
-        const response = await axios.get(`${api.base}?id=${city}&units=metric&appid=${api.key}`);
+        const response = await axios.get(`${baseUrl}?id=${city}&units=metric&appid=${apiKey}`);
         return response.data;
     } catch (error) {
         console.log(error);

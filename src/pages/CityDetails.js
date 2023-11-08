@@ -1,20 +1,8 @@
 import { Row, Col } from "react-bootstrap";
 import './CityDetails.css';
+import {dateTimeOptions, timeOptions} from '../Constants';
 
 const CityDetails = ({ selectedCity }) => {
-    const dateTimePptions = {
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-        month: 'short',
-        day: 'numeric',
-    };
-
-    const timeOptions = {
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true,
-    }
     return (
         <div className="detcard">
             <div className="detcard-head">
@@ -22,7 +10,7 @@ const CityDetails = ({ selectedCity }) => {
                         <path fillRule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                     </svg>
                 <div className="detcard-city">{selectedCity.name}, {selectedCity.sys.country}</div>
-                <div className="detcard-date">{new Date(selectedCity.dt * 1000).toLocaleString('en-US', dateTimePptions)}</div>
+                <div className="detcard-date">{new Date(selectedCity.dt * 1000).toLocaleString('en-US', dateTimeOptions)}</div>
                 <Row className="mt-4">
                     <Col className="detcard-head-col" sm={6}>
                         <img alt="weather icon" src={`https://openweathermap.org/img/wn/${selectedCity.weather[0].icon}.png`} className="weather-icon" />
