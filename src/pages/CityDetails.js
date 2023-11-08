@@ -24,7 +24,7 @@ const CityDetails = ({ selectedCity }) => {
                 <div className="detcard-city">{selectedCity.name}, {selectedCity.sys.country}</div>
                 <div className="detcard-date">{new Date(selectedCity.dt * 1000).toLocaleString('en-US', dateTimePptions)}</div>
                 <Row className="mt-4">
-                    <Col className="detcard-col">
+                    <Col className="detcard-head-col" sm={6}>
                         <img alt="weather icon" src={`https://openweathermap.org/img/wn/${selectedCity.weather[0].icon}.png`} className="weather-icon" />
                         <div className="detcard-desc">{selectedCity.weather[0].description}</div>
                     </Col>
@@ -39,16 +39,16 @@ const CityDetails = ({ selectedCity }) => {
 
             <div className="detcard-body">
                 <Row>
-                    <Col className="detcard-body-col1 order-lg-first" lg={true} xs={6}>
+                    <Col className="detcard-body-col1 order-lg-first" lg={true} sm={6} xs={6}>
                         <p>Pressure {selectedCity.main.pressure}hPa</p>
                         <p>Humidity {selectedCity.main.humidity}%</p>
                         <p>Visibility {selectedCity.visibility / 1000} km</p>
                     </Col>
-                    <Col className="detcard-body-col2 order-first" lg={true} xs={12}>
+                    <Col className="detcard-body-col2 order-first" lg={true} md={12} sm={12} xs={12}>
                         <img alt="wind-arrow" src={"icons/direction-arrow.png"} />
                         <p>{selectedCity.wind.speed}m/s {selectedCity.wind.deg} Degree</p>
                     </Col>
-                    <Col className="detcard-body-col3" lg={true} xs={6}>
+                    <Col className="detcard-body-col3" lg={true} xs={4}>
                         <p>Sunrise: {new Date(selectedCity.sys.sunrise * 1000).toLocaleString('en-US', timeOptions).toLowerCase()} </p>
                         <p>Sunset: {new Date(selectedCity.sys.sunset * 1000).toLocaleString('en-US', timeOptions).toLowerCase()} </p>
                     </Col>
