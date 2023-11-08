@@ -50,14 +50,14 @@ const Home = ({ setSelectedCity }) => {
                 <span> <Button>Add City</Button> </span>
             </div>
             <Row>
-                {weatherData && weatherData.map((cityWeather, index) => {
+                {weatherData.length > 0 ? weatherData.map((cityWeather, index) => {
                     return (
-
                         <Col lg={6} className='mb-5' key={index}>
                             <WeatherCard cityWeather={cityWeather} setSelectedCity={setSelectedCity} />
                         </Col>
                     )
-                })}
+                })
+            : <h3>Something Went Wrong</h3>}
             </Row>
 
         </div>

@@ -42,7 +42,7 @@ const WeatherCard = ({ cityWeather, setSelectedCity }) => {
                     </Col>
 
                     <Col>
-                        <div className="card-temp">{cityWeather.main.temp}°c</div>
+                        <div className="card-temp">{(cityWeather.main.temp.toFixed(0))}°c</div>
                         <div className="card-minmaxtemp">Temp Min: {cityWeather.main.temp_min}°c</div>
                         <div className="card-minmaxtemp">Temp Max: {cityWeather.main.temp_max}°c</div>
                     </Col>
@@ -51,16 +51,16 @@ const WeatherCard = ({ cityWeather, setSelectedCity }) => {
 
             <div className="card-body">
                 <Row>
-                    <Col className="card-body-col1 order-lg-first" lg={true} xs={6}>
+                    <Col className="card-body-col1 order-lg-first order-md-first order-sm-first" lg={true} md={true} sm={true} xs={6}>
                         <p>Pressure: {cityWeather.main.pressure}hPa</p>
                         <p>Humidity: {cityWeather.main.humidity}%</p>
-                        <p>Visibility: {cityWeather.visibility / 1000} km</p>
+                        <p>Visibility: {(cityWeather.visibility / 1000).toFixed(1)} km</p>
                     </Col>
-                    <Col className="card-body-col2 order-first" lg={true} xs={12}>
+                    <Col className="card-body-col2 order-first" lg={true} md={true} sm={true} xs={12}>
                         <img alt="wind-arrow" src={"icons/direction-arrow.png"} />
-                        <p>{cityWeather.wind.speed}m/s {cityWeather.wind.deg} Degree</p>
+                        <p>{(cityWeather.wind.speed).toFixed(1)}m/s {cityWeather.wind.deg} Degree</p>
                     </Col>
-                    <Col className="card-body-col3" lg={true} xs={6}>
+                    <Col className="card-body-col3" lg={true} md={true} sm={true} xs={6}>
                         <p>Sunrise: {new Date(cityWeather.sys.sunrise * 1000).toLocaleString('en-US', timeOptions).toLowerCase()} </p>
                         <p>Sunset: {new Date(cityWeather.sys.sunset * 1000).toLocaleString('en-US', timeOptions).toLowerCase()} </p>
                     </Col>

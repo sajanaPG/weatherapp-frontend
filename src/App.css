@@ -68,7 +68,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
 }
 
 .cards:hover {
@@ -76,7 +75,7 @@ body {
 }
 
 .card-head {
-  width: 579px;
+  width: 580px;
   height: 217px;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
@@ -150,15 +149,15 @@ body {
 }
 
 .card-body {
-  width: 579px;
-  height: 151px;
+  width: 580px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   background-color: #383b47;
+  font-size: 16px;
 }
 
-.card-body Row {
-  margin-top: 12px;
+.card-body .row {
+  margin: 26px 0px;
 }
 
 .card-body p {
@@ -166,25 +165,21 @@ body {
 }
 
 .card-body-col1 {
-  font-size: 16px;
   line-height: 29px;
   font-weight: 700;
   border-right-color: #9ba2c0;
   border-right-width: 2px;
   border-right-style: outset;
-  margin-left: 40px;
-  margin-top: 26px;
+  margin-left: 28px;
 }
 
 .card-body-col2 {
-  font-size: 16px;
   line-height: 34px;
   font-weight: 600;
   text-align: center;
   border-right-color: #9ba2c0;
   border-right-width: 2px;
   border-right-style: outset;
-  margin-top: 26px;
 }
 
 .card-body-col2 p {
@@ -197,12 +192,11 @@ body {
 }
 
 .card-body-col3 {
-  font-size: 16px;
   line-height: 30px;
   font-weight: 700;
   text-align: right;
-  margin-right: 40px;
-  margin-top: 40px;
+  margin-right: 28px;
+  padding-top: 14px;
 }
 
 /* Footer component */
@@ -212,6 +206,7 @@ body {
   align-items: center;
   height: 94px;
   background-color: #30333d;
+  min-width: 400px;
 }
 
 .footer p {
@@ -223,16 +218,145 @@ body {
   font-weight: 400;
 }
 
-@media (max-width: 479px) {
+@media (max-width: 1400px) {
+  .home-container {
+    padding: 8px 20px;
+  }
+
+  .card-head {
+    width: 520px;
+    height: 190px;
+  }
+
+  .card-body {
+    width: 520px;
+    font-size: 15px;
+  }
+
+  .card-body .row {
+    margin: 18px 0px;
+  }
+
+  .card-body-col1 {
+    margin-left: 20px;
+  }
+
+  .card-body-col2 {
+    line-height: 24px;
+  }
+
+  .card-body-col3 {
+    margin-right: 20px;
+    padding-top: 6px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .home-container {
+    padding: 8px 10px;
+  }
+
+  .card-head {
+    width: 460px;
+  }
+
+  .card-body {
+    width: 460px;
+    font-size: 14px;
+  }
+
+  .card-body-col1 {
+    margin-left: 10px;
+    padding: 0px 6px;
+  }
+
+  .card-body-col2 {
+    padding: 0px 6px;
+  }
+
+  .card-body-col2 img {
+    width: 30px;
+  }
+
+  .card-body-col3 {
+    margin-right: 10px;
+    padding: 0px 6px;
+  }
+}
+
+@media (max-width: 992px) {
+  .card-head {
+    width: 580px;
+  }
+
+  .card-body {
+    width: 580px;
+    font-size: 16px;
+  }
+
+  .card-body-col1 {
+    margin-left: 28px;
+    padding: 0px 12px;
+  }
+
+  .card-body-col2 {
+    padding: 0px 12px;
+  }
+
+  .card-body-col2 img {
+    width: 30px;
+  }
+
+  .card-body-col3 {
+    margin-right: 28px;
+    padding: 0px 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .city-input {
+    margin-bottom: 12px;
+  }
+
+  .card-head {
+    width: 540px;
+  }
+
+  .card-body {
+    width: 540px;
+    font-size: 15px;
+  }
+
+  .card-body-col1 {
+    margin-left: 20px;
+    padding: 0px 6px;
+  }
+
+  .card-body-col2 {
+    padding: 0px 6px;
+  }
+
+  .card-body-col2 img {
+    width: 30px;
+  }
+
+  .card-body-col3 {
+    margin-right: 20px;
+    padding: 0px 6px;
+  }
+}
+
+@media (max-width: 576px) {
   .header-title {
     margin-top: 50px;
   }
+
   .home-container {
     padding: 8px 10px;
   }
 
   .city-input {
-    width: 350px;
+    width: 330px;
     margin-bottom: 12px;
   }
 
@@ -241,7 +365,7 @@ body {
   }
 
   .card-head {
-    width: 355px;
+    width: 350px;
     height: 180px;
   }
 
@@ -249,33 +373,37 @@ body {
     font-size: 22px;
     font-weight: 600;
   }
-  
+
   .card-date {
     font-size: 14px;
     font-weight: 400;
   }
-    
+
   .card-desc {
     font-size: 14px;
     line-height: 24px;
     font-weight: 600;
   }
-  
+
   .card-temp {
     font-size: 45px;
     line-height: 60px;
     font-weight: 500;
   }
-  
+
   .card-minmaxtemp {
     font-size: 16px;
     line-height: 24px;
-    font-weight: 500;  
+    font-weight: 500;
   }
 
   .card-body {
-    width: 355px;
+    width: 350px;
     height: 151px;
+  }
+
+  .card-body .row {
+    margin: 0px;
   }
 
   .card-body-col1 {
@@ -286,7 +414,7 @@ body {
     margin-left: 20px;
     margin-top: 4px;
   }
-  
+
   .card-body-col2 {
     font-size: 14px;
     line-height: 24px;
@@ -294,16 +422,16 @@ body {
     margin-top: 6px;
     border-right: none;
   }
-  
+
   .card-body-col2 p {
     margin-top: 4px;
   }
-  
+
   .card-body-col2 img {
     width: 20px;
     padding-top: 0px;
   }
-  
+
   .card-body-col3 {
     font-size: 14px;
     line-height: 24px;
@@ -311,5 +439,5 @@ body {
     margin-top: 12px;
     width: auto;
   }
-  
+
 }
