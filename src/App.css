@@ -441,3 +441,42 @@ body {
   }
 
 }
+
+@media (max-width: 394px) {
+  .city-input {
+    width: 250px;
+  }
+  .card-head {
+    width: 250px;
+    height: 200px;
+  }
+
+  .card-body {
+    width: 250px;
+    height: fit-content;
+  }
+
+  .card-minmaxtemp {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .card-body-col1 {
+    width: 100%;
+    border: none;
+    text-align: center;
+    margin: 0px 0px 4px 0px;
+  }
+
+  .card-body-col2 {
+    width: 100%;
+    border: none;
+    margin-bottom: 4px;
+  }
+
+  .card-body-col3 {
+    width: 100%;
+    text-align: center;
+    margin: 0px 0px 4px 0px;
+  }
+}
