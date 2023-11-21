@@ -22,7 +22,7 @@ const Home = ({ setSelectedCity }) => {
             //if data is not available in cached data
             const response = await getWeather(city);
 
-            const newCachedData = { timestamp: currentTime, response};
+            const newCachedData = { timestamp: currentTime, data: response };
             localStorage.setItem(city, JSON.stringify(newCachedData));
 
             return response;
