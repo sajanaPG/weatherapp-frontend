@@ -5,7 +5,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { currentTime, cacheExpTime } from '../Constants';
 import cities from '../cities.json';
 
-const Home = ({ setSelectedCity }) => {
+const Home = () => {
     const [weatherData, setWeatherData] = useState([]);
 
     useEffect(() => {        
@@ -48,7 +48,7 @@ const Home = ({ setSelectedCity }) => {
                 {weatherData.length > 0 ? weatherData.map((cityWeather, index) => {
                     return (
                         <Col lg={6} className='mb-5' key={index}>
-                            <WeatherCard cityWeather={cityWeather} setSelectedCity={setSelectedCity} />
+                            <WeatherCard cityWeather={cityWeather} />
                         </Col>
                     )
                 })
