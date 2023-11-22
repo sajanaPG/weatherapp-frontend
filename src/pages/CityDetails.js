@@ -1,8 +1,10 @@
 import { Row, Col } from "react-bootstrap";
+import { useCity } from "../services/CityContext";
 import './CityDetails.css';
 import {dateTimeOptions, timeOptions} from '../Constants';
 
-const CityDetails = ({ selectedCity }) => {
+const CityDetails = () => {
+    const {selectedCity} = useCity();
     return (
         <div className="detcard">
             <div className="detcard-head">

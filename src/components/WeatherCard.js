@@ -1,12 +1,14 @@
 import { Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useCity } from "../services/CityContext";
 import {dateTimeOptions, timeOptions, colors} from '../Constants'
 
-const WeatherCard = ({ cityWeather, setSelectedCity }) => {
+const WeatherCard = ({ cityWeather }) => {
     const navigate = useNavigate();
+    const {setCity} = useCity();
 
     const hancleCardClick = (cityWeather) => {
-        setSelectedCity(cityWeather);
+        setCity(cityWeather);
         localStorage.setItem("selectedCity", JSON.stringify(cityWeather));
         navigate('/cityDetails');
     };    
