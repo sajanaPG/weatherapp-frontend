@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { getWeather } from '../services/ApiService';
 import WeatherCard from '../components/WeatherCard';
 import { Row, Col, Button } from 'react-bootstrap';
-import {cityCodesArr} from '../Constants';
-const Home = ({ setSelectedCity }) => {
+import { currentTime, cacheExpTime } from '../Constants';
+import cities from '../cities.json';
+
+const Home = () => {
     const [weatherData, setWeatherData] = useState([]);
 
     useEffect(() => {        
@@ -11,27 +13,23 @@ const Home = ({ setSelectedCity }) => {
             const cachedData = JSON.parse(localStorage.getItem(city));
             if (cachedData) {
                 const timestamp = cachedData.timestamp;
-                const currentTime = new Date().getTime();
 
-                // Check if data is not older than 5 minutes
-                if (currentTime - timestamp < 5 * 60 * 1000) {
+                // Check if data is not older than cache expiration time
+                if (currentTime - timestamp < cacheExpTime) {
                     return cachedData.data;
-                } else {
-                    localStorage.removeItem(city);
                 }
             }
             //if data is not available in cached data
             const response = await getWeather(city);
-            const data = await response.list;
 
-            const newCachedData = { timestamp: new Date().getTime(), data};
+            const newCachedData = { timestamp: currentTime, data: response };
             localStorage.setItem(city, JSON.stringify(newCachedData));
 
-            return data;
+            return response;
         };
 
         const fetchWeatherForCities = async () => {
-            const promises = cityCodesArr.map(city => fetchDataForCity(city));
+            const promises = cities.List.map(city => fetchDataForCity(city.CityCode));
             const cityWeatherData = await Promise.all(promises);
             const updatedWeatherData = [].concat(...cityWeatherData);
             setWeatherData(updatedWeatherData);
@@ -50,7 +48,7 @@ const Home = ({ setSelectedCity }) => {
                 {weatherData.length > 0 ? weatherData.map((cityWeather, index) => {
                     return (
                         <Col lg={6} className='mb-5' key={index}>
-                            <WeatherCard cityWeather={cityWeather} setSelectedCity={setSelectedCity} />
+                            <WeatherCard cityWeather={cityWeather} />
                         </Col>
                     )
                 })
