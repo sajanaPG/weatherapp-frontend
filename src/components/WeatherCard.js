@@ -1,20 +1,19 @@
 import { Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useCity } from "../services/CityContext";
-import {dateTimeOptions, timeOptions, colors} from '../Constants'
-
+import {dateTimeOptions, timeOptions, colors} from '../Constants';
 const WeatherCard = ({ cityWeather }) => {
     const navigate = useNavigate();
     const {setCity} = useCity();
 
-    const hancleCardClick = (cityWeather) => {
-        setCity(cityWeather);
-        localStorage.setItem("selectedCity", JSON.stringify(cityWeather));
+    const hancleCardClick = (cityId) => {        
+        setCity(cityId);
+        localStorage.setItem("selectedCity", JSON.stringify(cityId));
         navigate('/cityDetails');
     };    
 
     return (        
-        <div className="cards" onClick={()=> hancleCardClick(cityWeather)}>
+        <div className="cards" onClick={()=> hancleCardClick(cityWeather.id)}>
             <div className="card-head" style={{ backgroundColor: colors[Math.floor(Math.random() * colors.length)] }}>
                 <button className="card-btn-close">&times;</button>
                 <Row>
