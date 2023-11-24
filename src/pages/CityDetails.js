@@ -3,7 +3,7 @@ import { useCity } from "../services/CityContext";
 import { getWeather } from "../services/ApiService";
 import { useEffect, useState } from "react";
 import './CityDetails.css';
-import {dateTimeOptions, timeOptions, currentTime} from '../Constants';
+import {dateTimeOptions, timeOptions} from '../Constants';
 
 const CityDetails = () => {
     const {selectedCity} = useCity();
@@ -13,7 +13,7 @@ const CityDetails = () => {
     useEffect(() => {
         const fetchData = async () => {
             const response = await getWeather(selectedCity);
-            const newCachedData = { timestamp: currentTime, data: response };
+            const newCachedData = { timestamp: new Date().getTime(), data: response };
             localStorage.setItem(selectedCity, JSON.stringify(newCachedData));
             setCityWeather(response);
         }
